@@ -13,6 +13,33 @@ export async function getStaticProps() {
   }
 }
 
+/*
+// getServerSideProps is called at request time
+// fetch data at request time instead of at build time
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      // props for your component
+    }
+  }
+}
+*/
+
+/*
+// Client-side Rendering
+// If you do not need to pre-render the data, you can also use the following strategy (called Client-side Rendering):
+// The team behind Next.js has created a React hook for data fetching called SWR. We highly recommend it if you’re fetching data on the client side.
+import useSWR from 'swr'
+
+function Profile() {
+  const { data, error } = useSWR('/api/user', fetch)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+  return <div>hello {data.name}!</div>
+}
+*/
+
 export default function Home({ allPostsData }) {
   return (
     <Layout home>
